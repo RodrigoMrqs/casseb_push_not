@@ -20,12 +20,13 @@ class NotificationService {
   static Future<void> init() async {
     final fcm = FirebaseMessaging.instance;
 
-    // Android 13+: solicita permissão de notificações.
-    await fcm.requestPermission();
+    // Android 13+: solicita permissão de notificações (sem bloquear o resto).
+    fcm.requestPermission();
 
     // Identificador do dispositivo (útil para enviar teste a um aparelho).
-    fcm.onRegistered.listen((id) => debugPrint('FCM REGISTRO: $id'));
-    await fcm.register();
+    // ignore: deprecated_member_use
+    final token = await fcm.getToken();
+    debugPrint('FCM REGISTRO: $token');
 
     // App em primeiro plano: o sistema não mostra a notificação,
     // então exibimos um aviso dentro do app com opção de abrir o evento.

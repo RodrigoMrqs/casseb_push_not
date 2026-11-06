@@ -7,14 +7,19 @@ import 'services/notification_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
+  // O app abre primeiro; o Firebase inicia em segundo plano.
+  await _iniciarFirebase();
+}
+
+Future<void> _iniciarFirebase() async {
   try {
     await Firebase.initializeApp();
     FirebaseMessaging.onBackgroundMessage(firebaseBackgroundHandler);
     await NotificationService.init();
   } catch (e) {
-    debugPrint('Firebase não configurado (falta google-services.json?): $e');
+    debugPrint('Falha ao iniciar o Firebase: $e');
   }
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
