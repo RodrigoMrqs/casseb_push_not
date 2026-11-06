@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138999981373",
+    "project_id": "push-not-27c55",
+    "storage_bucket": "push-not-27c55.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138999981373:android:beb325892be51045cdd154",
+        "android_client_info": {
+          "package_name": "com.example.casseb_push_not"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm49JUEe9Q1O8q6v3dlk3O8busxbFba80"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
